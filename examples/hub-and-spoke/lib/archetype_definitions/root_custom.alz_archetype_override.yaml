@@ -1,10 +1,18 @@
 base_archetype: root
 name: root_custom
-policy_assignments_to_add: []
+policy_assignments_to_add: [
+  # To add the Allowed-Locations policy assignment, uncomment the following line:
+  # Allowed-Locations,
+  # To add required tags policy assignment, uncomment the following line:
+  # Enforce-Mandatory-Tags,
+]
 policy_assignments_to_remove: []
 policy_definitions_to_add: []
 policy_definitions_to_remove: []
-policy_set_definitions_to_add: []
+policy_set_definitions_to_add: [
+  # To add the initiative definition for required tags, uncomment the following line:
+  # Enforce-Mandatory-Tags,
+]
 policy_set_definitions_to_remove: []
 role_definitions_to_add: []
 role_definitions_to_remove: []

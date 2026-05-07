@@ -316,6 +316,12 @@ This variable can be used to apply tags to all resources that support it. Some r
 tags = {
   deployed_by = "terraform"
   source      = "Azure Landing Zones Accelerator"
+  # Uncomment the following lines if you are going to create and assign the required Enforce-Mandatory-Tags policy set
+  # Remember to uncomment .\lib\archetype_definitions\root_custom.alz_archetype_override.yaml
+  # Lines 14, and 7
+  # Owner       = "TO-BE-UPDATED"
+  # Environment = "TO-BE-UPDATED"
+  # CostCenter  = "TO-BE-UPDATED"
 }
 
 /* 

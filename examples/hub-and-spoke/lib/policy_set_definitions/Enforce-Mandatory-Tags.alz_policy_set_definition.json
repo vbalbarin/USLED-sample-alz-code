@@ -1,0 +1,74 @@
+{
+  "name": "Enforce-Mandatory-Tags",
+  "type": "Microsoft.Authorization/policySetDefinitions",
+  "properties": {
+    "displayName": "Enforce mandatory tags on resources",
+    "description": "This initiative enforces mandatory tags on all resources to ensure proper governance and cost management.",
+    "policyType": "Custom",
+    "metadata": {
+      "version": "1.0.0",
+      "category": "Tags",
+      "source": "ALZ",
+      "alzCloudEnvironments": [
+        "AzureCloud",
+        "AzureChinaCloud",
+        "AzureUSGovernment"
+      ]
+    },
+    "parameters": {
+      "environmentTagName": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Environment Tag Name",
+          "description": "Name of the environment tag"
+        },
+        "defaultValue": "Environment"
+      },
+      "ownerTagName": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Owner Tag Name",
+          "description": "Name of the owner tag"
+        },
+        "defaultValue": "Owner"
+      },
+      "costCenterTagName": {
+        "type": "String",
+        "metadata": {
+          "displayName": "Cost Center Tag Name",
+          "description": "Name of the cost center tag"
+        },
+        "defaultValue": "CostCenter"
+      }
+    },
+    "policyDefinitions": [
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99",
+        "policyDefinitionReferenceId": "Require-Environment-Tag",
+        "parameters": {
+          "tagName": {
+            "value": "[parameters('environmentTagName')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99",
+        "policyDefinitionReferenceId": "Require-Owner-Tag",
+        "parameters": {
+          "tagName": {
+            "value": "[parameters('ownerTagName')]"
+          }
+        }
+      },
+      {
+        "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/871b6d14-10aa-478d-b590-94f262ecfa99",
+        "policyDefinitionReferenceId": "Require-CostCenter-Tag",
+        "parameters": {
+          "tagName": {
+            "value": "[parameters('costCenterTagName')]"
+          }
+        }
+      }
+    ]
+  }
+}

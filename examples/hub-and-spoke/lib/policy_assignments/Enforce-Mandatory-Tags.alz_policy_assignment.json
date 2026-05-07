@@ -1,0 +1,43 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2024-04-01",
+  "name": "Enforce-Mandatory-Tags",
+  "dependsOn": [],
+  "properties": {
+    "displayName": "Enforce mandatory tags on resources",
+    "description": "This initiative enforces mandatory tags on all resources to ensure proper governance and cost management.",
+    "policyDefinitionId": "/providers/Microsoft.Management/managementGroups/placeholder/providers/Microsoft.Authorization/policySetDefinitions/Enforce-Mandatory-Tags",
+    "enforcementMode": "DoNotEnforce",
+    "nonComplianceMessages": [
+      {
+        "message": "Resources must have all mandatory tags (Environment, Owner, CostCenter)."
+      },
+      {
+        "policyDefinitionReferenceId": "Require-Environment-Tag",
+        "message": "Resources must have an 'Environment' tag."
+      },
+      {
+        "policyDefinitionReferenceId": "Require-Owner-Tag",
+        "message": "Resources must have an 'Owner' tag."
+      },
+      {
+        "policyDefinitionReferenceId": "Require-CostCenter-Tag",
+        "message": "Resources must have a 'CostCenter' tag."
+      }
+    ],
+    "parameters": {
+      "environmentTagName": {
+        "value": "Environment"
+      },
+      "ownerTagName": {
+        "value": "Owner"
+      },
+      "costCenterTagName": {
+        "value": "CostCenter"
+      }
+    },
+    "scope": "/providers/Microsoft.Management/managementGroups/placeholder",
+    "notScopes": []
+  },
+  "location": "${default_location}"
+}

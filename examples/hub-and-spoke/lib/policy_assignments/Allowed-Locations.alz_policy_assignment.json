@@ -1,0 +1,32 @@
+{
+  "type": "Microsoft.Authorization/policyAssignments",
+  "apiVersion": "2024-04-01",
+  "name": "Allowed-Locations",
+  "dependsOn": [],
+  "properties": {
+    "displayName": "Allowed locations for resource deployment",
+    "description": "This initiative restricts the locations where resources can be deployed to enforce data residency requirements.",
+    "policyDefinitionId": "/providers/Microsoft.Authorization/policyDefinitions/e56962a6-4747-49cd-b67b-bf8b01975c4c",
+    "enforcementMode": "Default",
+    "nonComplianceMessages": [
+      {
+        "message": "Resources must be deployed to an approved location."
+      }
+    ],
+    "parameters": {
+      "listOfAllowedLocations": {
+        "value": [
+          "eastus",
+          "eastus2",
+          "westus2",
+          "westus",
+          "canadaeast",
+          "canadacentral"
+        ]
+      }
+    },
+    "scope": "/providers/Microsoft.Management/managementGroups/placeholder",
+    "notScopes": []
+  },
+  "location": "${default_location}"
+}
